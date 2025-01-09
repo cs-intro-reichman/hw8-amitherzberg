@@ -68,7 +68,11 @@
     /** Removes the given name from the follows list of this user. If successful, returns true.
      *  If the name is not in the list, does nothing and returns false. */
     public boolean removeFollowee(String name) {
-
+        
+        if (name == null) {
+            return false;
+        }
+         
         name = name.toLowerCase();
 
         for (int i = 0; i < fCount; i++) {
@@ -109,7 +113,7 @@
         }
         return false;
     }
-    
+
     /** Returns this user's name, and the names that s/he follows. */
     public String toString() {
         String ans = name + " -> ";
